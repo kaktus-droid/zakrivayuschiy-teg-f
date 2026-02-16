@@ -24,7 +24,7 @@
 .header__card {
   width: var(--width-block);
   height: 327px;
-  margin: 100px 0px;
+  margin: 100px 0px 109px 0px;
   background-color: #fff;
   text-align: center;
   display: grid;
@@ -32,7 +32,7 @@
   justify-self: center;
   gap: 20px;
   font-family: var(--font-family-accent);
-  border: 2px solid #000;
+  border: var(--border-standart);
 }
 
 .header__title {
@@ -55,7 +55,7 @@
 
 .card {
   background-color: white;
-  border: 2px solid #000;
+  border: var(--border-standart);
 }
 
 .card__title {
@@ -69,8 +69,8 @@
 }
 
 .card__image {
-  border-bottom: 2px solid #000;
-  border-top: 2px solid #000;
+  border-bottom: var(--border-standart);
+  border-top: var(--border-standart);
   display: block;
   inline-size: 100%;
   object-fit: cover;
@@ -112,27 +112,34 @@
   justify-self: end;
   align-items: center;
   /* justify-content: space-between; */
-  margin: 25px 25px 25px 0;
+  margin: 25px 25px 27px 0;
   padding: 0;
+}
+
+ .card__icon-button:focus-visible {
+  outline: none;
+} 
+
+.card__icon-button:focus-visible .like-icon {
+  outline: 2px solid #000;
+  transition: outline 0.3s ease;
 }
 
 .card__icon-button {
-  /* inline-size: 27px; */
-  block-size: 38px;
+  block-size: 36px;
   border: none;
   background-color: transparent;
-  padding: 7px 12px 7px 0;
 }
 
+
+
 .card__like-button {
-  width: 130px;
-  height: 35px;
+  inline-size: 130px;
+  block-size: 38px;
   /* margin-left: 12px; */
   font-family: var(--font-family-accent);
-  outline: 2px solid #000;
+  border: var(--border-standart);
   padding: 0;
-  border: none;
-  background-color: transparent;
 }
 
 .button-save {
@@ -144,7 +151,7 @@
   justify-self: center;
   align-items: center;
   gap: 8px;
-  border: 2px solid #000;
+  border: var(--border-standart);
   padding: 0;
 }
 
@@ -153,6 +160,8 @@
   height: 28px;
   justify-self: center;
   align-self: end;
+  position: relative;
+  z-index: 2;
 }
 
 .button-save__text {
@@ -218,7 +227,7 @@
   block-size: 191px;
   padding: 0;
   border: none;
-  outline: 2px solid #000;
+  outline: var(--border-standart);
 }
 
 @media (width>=700px) {
@@ -252,6 +261,8 @@
   width: 39px;
   height: 39px;
   align-self: center; 
+  position: relative;
+  z-index: 2;
 }
 
 .dialog-window__button {
@@ -260,9 +271,74 @@
   line-height: 0.9;
   text-transform: uppercase;
   background-color: transparent;
-  border: 2px solid #000;
+  border: var(--border-standart);
 }
 
 .dialog-window::backdrop {
   background-color: rgb(0 0 0/0.75);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--accent-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.button {
+  position: relative;
+  z-index: 1;
+}
+
+.button::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+  
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:hover::after {
+  transform: scaleX(1);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button__text {
+  position: relative;
+  z-index: 2;
+}
+
+.button:hover .button__text  {
+  mix-blend-mode: difference;
+  transition: mix-blend-mode 2s ease;
+  color:#fff;
+  
+}
+
+.button:hover .button-save__icon {
+  --accent-color: #fff;
+  mix-blend-mode: difference;
+  transition: mix-blend-mode 2s ease;
+}
+  
+.like-icon__main-body {
+  fill: transparent;
+}
+
+.like-icon__core {
+  fill: transparent;
+} 
+
+.like-icon__sparks {
+  opacity: 0;
 }
