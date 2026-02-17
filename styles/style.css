@@ -55,6 +55,7 @@
 .card {
   background-color: white;
   border: var(--border-standart);
+  display: grid;
 }
 
 .card__title {
@@ -292,6 +293,7 @@
 .button {
   position: relative;
   z-index: 1;
+  background-color: var(--background-color-block);
 }
 
 .button::after {
