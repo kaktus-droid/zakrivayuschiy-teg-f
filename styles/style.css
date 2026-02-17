@@ -11,28 +11,28 @@
 */
 
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-text);
   background-image: var(--gradient);
   background-size: cover;
   background-attachment: fixed;
-  font-family: var(--font-family-main);
-  font-size: var(--font-size-text);
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
   font-variation-settings: var(--font-weight-text);
 }
 
 .header__card {
+  display: grid;
+  justify-self: center;
+  align-content: center;
+  gap: 20px;
+  margin: 100px 0px clamp(6.25rem, 6.294rem + -0.1878vw, 6.125rem) 0px;
+  border: var(--border-standart);
+  font-family: var(--font-family-accent);
+  text-align: center;
+  background-color: var(--background-color-block);
   inline-size: var(--inline-size-block);
   block-size: var(--block-size-header);
-  margin: 100px 0px clamp(6.25rem, 6.294rem + -0.1878vw, 6.125rem) 0px;
-  background-color: var(--background-color-block);
-  text-align: center;
-  display: grid;
-  align-content: center;
-  justify-self: center;
-  gap: 20px;
-  font-family: var(--font-family-accent);
-  border: var(--border-standart);
 }
 
 .header__title {
@@ -46,22 +46,22 @@
 }
 
 .cards {
-  width: var(--inline-size-block);
   display: grid;
   justify-self: center;
   gap: 49px;
+  width: var(--inline-size-block);
 }
 
 .card {
-  background-color: white;
-  border: var(--border-standart);
   display: grid;
+  border: var(--border-standart);
+  background-color: white;
 }
 
 .card__title {
+  padding: 5px 12px;
   font-size: var(--font-size-text);
   font-variation-settings: var(--font-weight-title);
-  padding: 5px 12px;
 }
 
 .card__block-with-image {
@@ -69,36 +69,36 @@
 }
 
 .card__image {
-  border-bottom: var(--border-standart);
-  border-top: var(--border-standart);
   display: block;
-  inline-size: 100%;
+  box-sizing: content-box;
+  border-top: var(--border-standart);
+  border-bottom: var(--border-standart);
   object-fit: cover;
   object-position: center;
+  inline-size: 100%;
   aspect-ratio: 1/1;
-  box-sizing: content-box;
 }
 
 .card__label {
   position: absolute;
   top: 25px;
   right: 25px;
-  font-family: var(--font-family-accent);
-  text-transform: uppercase;
-  mix-blend-mode: hard-light;
   opacity: 0.5;
   color: var(--accent-color);
+  font-family: var(--font-family-accent);
+  text-transform: uppercase;
   text-shadow:
     1px 0 var(--color-label-shadow),
     -1px 0 var(--color-label-shadow),
     0 -1px var(--color-label-shadow),
     0 1px var(--color-label-shadow);
+  mix-blend-mode: hard-light;
 }
 
 @supports (-webkit-text-stroke: 1px var(--color-label-shadow)) {
   .card__label {
-    -webkit-text-stroke: 1px var(--color-label-shadow);
     text-shadow: none;
+    -webkit-text-stroke: 1px var(--color-label-shadow);
   }
 }
 
@@ -113,13 +113,12 @@
   justify-self: end;
   align-items: center;
   margin: 25px 25px 27px 0;
-  /* padding: 0; */
 }
 
 .card__icon-button {
-  block-size: 36px;
   border: none;
   background-color: transparent;
+  block-size: 36px;
 }
 
 .card__icon-button:focus-visible {
@@ -132,41 +131,37 @@
 }
 
 .card__like-button {
+  border: var(--border-standart);
+  font-family: var(--font-family-accent);
+  font-weight: var(--font-weight-button);
+  font-size: var(--font-size-button);
   inline-size: 130px;
   block-size: 38px;
-  font-family: var(--font-family-accent);
-  font-size: var(--font-size-button);
-  font-weight: var(--font-weight-button);
-  border: var(--border-standart);
-  /* padding: 0; */
 }
 
 .button-save {
-  inline-size: 306px;
-  block-size: 84px;
-  margin-bottom: 100px;
   display: grid;
   justify-self: center;
-  /* align-items: center; */
   gap: 8px;
+  margin-bottom: 100px;
   border: var(--border-standart);
   padding: 0;
+  inline-size: 306px;
+  block-size: 84px;
 }
 
 .button-save__icon {
-  inline-size: 28px;
-  /* height: 28px; */
-  justify-self: center;
-  align-self: end;
   position: relative;
   z-index: 2;
+  justify-self: center;
+  align-self: end;
+  inline-size: 28px;
 }
 
 .button-save__text {
-  /* align-self: start; */
   font-family: var(--font-family-accent);
-  font-size: var(--font-size-button);
   font-weight: var(--font-weight-button);
+  font-size: var(--font-size-button);
 }
 
 .filter-blur {
@@ -203,17 +198,15 @@
 
 @media (width>=700px) {
   .button-save {
+    display: flex;
     inline-size: 335px;
     block-size: 55px;
-    display: flex;
-    /* align-items: center; */
   }
 
   .button-save__icon {
-    inline-size: 21px;
-    /* height: 21px; */
-    margin-left: 20px;
     align-self: center;
+    margin-left: 20px;
+    inline-size: 21px;
   }
 
   .button-save__text {
@@ -222,20 +215,20 @@
 }
 
 .dialog-window {
+  border: none;
+  padding: 0;
+  outline: var(--border-standart);
+  font-weight: var(--font-weight-button);
+  font-size: var(--font-size-button);
   inline-size: 341px;
   block-size: 191px;
-  padding: 0;
-  border: none;
-  outline: var(--border-standart);
-  font-size: var(--font-size-button);
-  font-weight: var(--font-weight-button);
 }
 
 .dialog-window__content {
   display: grid;
-  padding: 30px 40px;
   grid-template-rows: 1fr 38px;
   gap: 30px;
+  padding: 30px 40px;
 }
 
 @media (width>=700px) {
@@ -261,19 +254,16 @@
 }
 
 .dialog-window__content-up-icon {
-  inline-size: 39px;
-  /* height: 39px; */
   align-self: center;
-  /* position: relative;
-  z-index: 2; */
+  inline-size: 39px;
 }
 
 .dialog-window__button {
+  border: var(--border-standart);
   padding: 0;
   font-family: var(--font-family-accent);
   line-height: 0.9;
   text-transform: uppercase;
-  border: var(--border-standart);
 }
 
 .dialog-window::backdrop {
@@ -281,8 +271,8 @@
 }
 
 .button:focus {
-  outline: none;
   box-shadow: 2px 2px 0 var(--accent-color);
+  outline: none;
   transition: box-shadow 0.3s ease;
 }
 
@@ -298,21 +288,21 @@
 
 .button::after {
   content: "";
-  display: block;
-  inline-size: 100%;
-  block-size: 100%;
-  background-color: var(--accent-color);
   position: absolute;
   top: 0;
   left: 0;
+  display: block;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.5s ease-in-out;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .button:hover::after {
-  transform: scaleX(1);
   transition: transform 0.5s ease-in-out;
+  transform: scaleX(1);
 }
 
 .button__text {
@@ -321,8 +311,8 @@
 }
 
 .button .button__text {
-  mix-blend-mode: difference;
   color: #fff;
+  mix-blend-mode: difference;
 }
 
 .button .button-save__icon {
